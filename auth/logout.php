@@ -7,4 +7,4 @@ unset(
   $_SESSION['user_email']
 );
 
-header("location: login.php");
+redirect_to("auth/login.php");

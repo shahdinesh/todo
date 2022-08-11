@@ -1,9 +1,10 @@
 <?php
 session_start();
 include "../manager/db_connection.php";
+include "../manager/redirect.php";
 
 if (isset($_SESSION['user_email']))
-	header("location: ../index.php");
+  redirect_to();
 
 $login_error = "";
 if (isset($_POST['login'])) {
@@ -17,7 +18,7 @@ if (isset($_POST['login'])) {
     $_SESSION['user_name'] = $user['name'];
     $_SESSION['user_email'] = $email;
 
-    header("location: ../index.php");
+    redirect_to("index.php");
   } else
     $login_error = "Email and/or password didnot match our record.";  
 }
@@ -55,7 +56,7 @@ if (isset($_POST['register'])) {
     $_SESSION['user_name'] = $name;
     $_SESSION['user_email'] = $email;
 
-    header("location: ../index.php");
+    redirect_to("index.php");
   }
 }
 ?>
