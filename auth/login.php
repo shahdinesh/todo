@@ -32,7 +32,7 @@ if (isset($_POST['register'])) {
   if ($name == '')
     $register_errors['name'] = 'Name cannot be blank';
   elseif (!preg_match("/^[a-zA-Z-' ]*$/", $name))
-    $nameErr = "Only letters and white space allowed";
+    $register_errors['name'] = "Only letters and white space allowed";
   
   if ($email == '')
     $register_errors['email'] = 'Email cannot be blank';
