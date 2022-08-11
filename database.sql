@@ -12,7 +12,7 @@ CREATE TABLE `tasks` (
   `user_id` INT UNSIGNED NOT NULL,
   `title` VARCHAR(150) NOT NULL,
   `description` TEXT NOT NULL,
-  `image` TEXT NOT NULL,
+  `image` VARCHAR(250) NOT NULL,
   `due_date` DATE NOT NULL,
   `status` ENUM('open','progress','completed') NOT NULL DEFAULT 'open',
   PRIMARY KEY (`id`),
