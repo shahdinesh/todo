@@ -2,7 +2,7 @@
 session_start();
 include "../manager/db_connection.php";
 
-if (isset($_SESSION['username']))
+if (isset($_SESSION['user_email']))
 	header("location: ../index.php");
 
 $login_error = "";
@@ -13,12 +13,15 @@ if (isset($_POST['login'])) {
   $user = $database->query("SELECT * FROM users WHERE email=?", $email)->fetch();
 
   if (password_verify($password, $user['password'])) {
-    $_SESSION['username'] = $email;
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_name'] = $user['name'];
+    $_SESSION['user_email'] = $email;
 
     header("location: ../index.php");
   } else
     $login_error = "Email and/or password didnot match our record.";  
 }
+
 $register_errors = [];
 if (isset($_POST['register'])) {
   $name = $_POST['name'];

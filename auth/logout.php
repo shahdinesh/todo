@@ -1,5 +1,10 @@
 <?php
 include "../base.php";
 
-unset($_SESSION['username']);
+unset(
+  $_SESSION['user_id'],
+  $_SESSION['user_name'],
+  $_SESSION['user_email']
+);
+
 header("location: login.php");
