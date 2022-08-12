@@ -8,6 +8,10 @@ $todos = $database->query("SELECT * FROM tasks WHERE user_id=? AND status LIKE ?
 if (isset($_POST['delete'])) {
   handle_delete();
 }
+
+if (isset($_POST['status'])) {
+  update_status();
+}
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +89,21 @@ if (isset($_POST['delete'])) {
           <?php endif ?>
         </td>
         <td><?=$todo['due_date'] ?></td>
-        <td><?=ucfirst($todo['status']) ?></td>
+        <td>
+          <?php if ($todo['status'] === 'completed'): ?>
+            Completed
+          <?php else: ?>
+            <form method="post">
+              <input type="hidden" name="id" value="<?=$todo['id'] ?>">
+              <select name="status" onchange="this.form.submit()">
+                <option value="">-- Select --</option>
+                <?php foreach ($statuses as $option_status): ?>
+                  <option value="<?= $option_status ?>" <?= ($option_status == $todo['status']) ? "selected" : "" ?>><?= ucfirst($option_status) ?></option>
+                <?php endforeach ?>
+              </select>
+            </form>
+          <?php endif ?>
+        </td>
         <td>
           <a href="./task/edit.php?id=<?=$todo['id'] ?>">Edit</a>
           <form method="post">
@@ -96,6 +114,10 @@ if (isset($_POST['delete'])) {
       </tr>
     <?php endforeach ?>
   </table>
+
+  <script>
+
+  </script>
 </body>
 
 </html>

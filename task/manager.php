@@ -72,3 +72,19 @@ function get_task($id) {
   
   return $task;
 }
+
+function update_status() {
+  $id = $_POST['id'];
+  $task = get_task($id);
+
+  if ($task) {
+    $GLOBALS['database']->query(
+      "UPDATE tasks set status=? WHERE id=? AND status <> ?",
+      $_POST['status'],
+      $id,
+      'completed'
+    );
+  
+    redirect_to();
+  }
+}
