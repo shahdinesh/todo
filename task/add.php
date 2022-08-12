@@ -25,7 +25,8 @@ if (isset($_POST['save'])) {
       $due_date,
       $status
     );
-
+    
+    set_flash_message("Successfully added task.");
     redirect_to();
   }
 }

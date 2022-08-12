@@ -45,6 +45,7 @@ if (isset($_POST['save'])) {
       );
     }
 
+    set_flash_message("Successfully updated task.");
     redirect_to();
   }
 }

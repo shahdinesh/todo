@@ -55,6 +55,7 @@ function handle_delete() {
       $id
     );
   
+    set_flash_message("Successfully deleted task.");
     redirect_to();
   }
 }
@@ -67,6 +68,7 @@ function get_task($id) {
   )->fetch();
 
   if ($task['user_id'] !== $current_user) {
+    set_flash_message("Invalid id given of task id. Please try again.", "danger");
     return NULL;
   }
   
@@ -84,7 +86,8 @@ function update_status() {
       $id,
       'completed'
     );
-  
+
+    set_flash_message("Successfully updated status of the task.");  
     redirect_to();
   }
 }
