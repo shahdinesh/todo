@@ -73,7 +73,7 @@ if (isset($_POST['delete'])) {
         <td><?=$todo['due_date'] ?></td>
         <td><?=ucfirst($todo['status']) ?></td>
         <td>
-          <a href="">Edit</a>
+          <a href="./task/edit.php?id=<?=$todo['id'] ?>">Edit</a>
           <form method="post">
             <input type="hidden" name="id" value="<?=$todo['id'] ?>">
             <button type="submit" name="delete">Delete</button>

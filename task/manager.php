@@ -2,7 +2,7 @@
 
 $statuses = ['open', 'progress', 'completed'];
 
-function validate_task_form($title, $description, $due_date, $status, $image) {
+function validate_task_form($title, $description, $due_date, $status, $image, $is_add = TRUE) {
   $todo_errors = [];
 
   if ($title == '')
@@ -25,14 +25,15 @@ function validate_task_form($title, $description, $due_date, $status, $image) {
   elseif (!in_array($status, $GLOBALS['statuses']))
     $todo_errors['status'] = 'Invalid status selected.';
 
-  $check = getimagesize($image["tmp_name"]);
-
-  if ($image['name'] == '')
-    $todo_errors['image'] = 'Image cannot be blank';
-  elseif ($check === FALSE)
-    $todo_errors['image'] = 'Please select valid image file.';
-  elseif ($image["size"] > 1000000)
-    $todo_errors['image'] = 'Image size too large. Please select image less than 1MB';
+  if ($is_add) {
+    $check = getimagesize($image["tmp_name"]);
+    if ($image['name'] == '')
+      $todo_errors['image'] = 'Image cannot be blank';
+    elseif ($check === FALSE)
+      $todo_errors['image'] = 'Please select valid image file.';
+    elseif ($image["size"] > 1000000)
+      $todo_errors['image'] = 'Image size too large. Please select image less than 1MB';
+  }  
 
   return $todo_errors;
 }
@@ -46,12 +47,7 @@ function move_image($image) {
 
 function handle_delete() {
   $id = $_POST['id'];
-  $task = get_task($id);
-  $current_user = get_current_user_id();
-
-  if ($task['user_id'] != $current_user) {
-    redirect_to();
-  }
+  get_task($id);
 
   $GLOBALS['database']->query(
     "DELETE FROM tasks WHERE id=?",
@@ -62,8 +58,15 @@ function handle_delete() {
 }
 
 function get_task($id) {
-  return $GLOBALS['database']->query(
+  $current_user = get_current_user_id();
+  $task = $GLOBALS['database']->query(
     "SELECT * FROM tasks WHERE id=?",
     $id
   )->fetch();
+
+  if ($task['user_id'] != $current_user) {
+    redirect_to();
+  }
+  
+  return $task;
 }
