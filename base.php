@@ -6,4 +6,3 @@ include "manager/redirect.php";
 
 if(!isset($_SESSION['user_email']))
 	redirect_to("auth/login.php");
-
