@@ -16,6 +16,8 @@ tr:nth-child(even) {
 .alert {
   border-radius: 6px;
   padding: 5px;
+  width: 99%;
+  height: 17px;
 }
 .alert-success {
   background-color: #e3fbbe;

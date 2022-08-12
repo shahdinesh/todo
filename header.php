@@ -26,6 +26,11 @@ $message = get_flash_message();
   <hr>
   <?php if ($message['message']): ?>
   <div class="alert alert-<?=$message['type'] ?>">
-    <?=$message['message'] ?>
+    <div style="width: 90%;float: left;">
+      <?=$message['message'] ?>
+    </div>
+    <div style="width: 10%;float: right;text-align: right;">
+      <a href="<?=$base_url?>clear_flash.php">x</a>
+    </div>
   </div>
   <?php endif ?>
