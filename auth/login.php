@@ -68,13 +68,7 @@ if (isset($_POST['register'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | ToDo app</title>
-
-  <style>
-    .error-message {
-      background-color: #d92929;
-      color: white;
-    }
-  </style>
+  <link rel="stylesheet" href="<?=$base_url ?>/css/todo.css">
 </head>
 <body>
   <div style="width: 50%;float: left;">

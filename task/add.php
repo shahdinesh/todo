@@ -1,6 +1,7 @@
 <?php
 include "../base.php";
 include "manager.php";
+$title = "Add";
 
 if (isset($_POST['save'])) {
   $title = $_POST['title'];
@@ -29,34 +30,7 @@ if (isset($_POST['save'])) {
   }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add | ToDo app</title>
-
-  <style>
-    .error-message {
-      background-color: #d92929;
-      color: white;
-    }
-  </style>
-</head>
-
-<body>
-  <div>
-    <div style="width: 80%;float: left;">
-      Welcome, <strong><?= $_SESSION['user_name'] ?></strong>
-    </div>
-    <div style="width: 20%;float: right;text-align: right;">
-      <a href="../auth/logout.php">Logout</a>
-    </div>
-  </div>
-  <hr>
+  <?php include "../header.php"; ?>
   <h2>Add To do</h2>
   <?php include "./form.php"; ?>
 

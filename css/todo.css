@@ -1,0 +1,33 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.alert {
+  border-radius: 6px;
+  padding: 5px;
+}
+.alert-success {
+  background-color: #e3fbbe;
+  border: 1px solid #00ff00;
+  color: #005400;
+}
+.alert-danger {
+  background-color: #fbbebe;
+  border: 1px solid #ff0000;
+  color: #540000;
+}
+.error-message {
+  background-color: #d92929;
+  color: white;
+}
