@@ -43,3 +43,27 @@ function move_image($image) {
 
   return move_uploaded_file($image["tmp_name"], $target_file) ? $filename : "";
 }
+
+function handle_delete() {
+  $id = $_POST['id'];
+  $task = get_task($id);
+  $current_user = get_current_user_id();
+
+  if ($task['user_id'] != $current_user) {
+    redirect_to();
+  }
+
+  $GLOBALS['database']->query(
+    "DELETE FROM tasks WHERE id=?",
+    $id
+  );
+
+  redirect_to();
+}
+
+function get_task($id) {
+  return $GLOBALS['database']->query(
+    "SELECT * FROM tasks WHERE id=?",
+    $id
+  )->fetch();
+}

@@ -6,3 +6,7 @@ include "manager/redirect.php";
 
 if(!isset($_SESSION['user_email']))
 	redirect_to("auth/login.php");
+
+function get_current_user_id() {
+	return $_SESSION['user_id'];
+}

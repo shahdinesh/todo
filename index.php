@@ -1,7 +1,12 @@
 <?php
 include "base.php";
+include "./task/manager.php";
 
 $todos = $database->query("SELECT * FROM tasks WHERE user_id=?", $_SESSION['user_id'])->fetchAll();
+
+if (isset($_POST['delete'])) {
+  handle_delete();
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,16 +53,32 @@ $todos = $database->query("SELECT * FROM tasks WHERE user_id=?", $_SESSION['user
       <th>S.N.</th>
       <th>Title</th>
       <th>Description</th>
+      <th>Image</th>
       <th>Due Date</th>
       <th>Status</th>
+      <th>Action</th>
     </tr>
     <?php foreach($todos as $index => $todo): ?>
       <tr>
         <td><?=($index+1) ?></td>
         <td><?=$todo['title'] ?></td>
         <td><?=$todo['description'] ?></td>
+        <td>
+          <?php if ($todo['image']): ?>
+          <a href="<?="./uploads/{$todo['image']}" ?>" target="_blank">
+            <img src="<?="./uploads/{$todo['image']}" ?>" height="50" width="50" alt="<?=$todo['title'] ?>">
+          </a>
+          <?php endif ?>
+        </td>
         <td><?=$todo['due_date'] ?></td>
         <td><?=ucfirst($todo['status']) ?></td>
+        <td>
+          <a href="">Edit</a>
+          <form method="post">
+            <input type="hidden" name="id" value="<?=$todo['id'] ?>">
+            <button type="submit" name="delete">Delete</button>
+          </form>
+        </td>
       </tr>
     <?php endforeach ?>
   </table>
