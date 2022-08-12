@@ -3,6 +3,8 @@ include "../base.php";
 include "manager.php";
 $id = $_GET['id'];
 $todo = get_task($id);
+if ($todo === NULL)
+  redirect_to();
 
 if (isset($_POST['save'])) {
   $title = $_POST['title'];

@@ -47,14 +47,16 @@ function move_image($image) {
 
 function handle_delete() {
   $id = $_POST['id'];
-  get_task($id);
+  $task = get_task($id);
 
-  $GLOBALS['database']->query(
-    "DELETE FROM tasks WHERE id=?",
-    $id
-  );
-
-  redirect_to();
+  if ($task) {
+    $GLOBALS['database']->query(
+      "DELETE FROM tasks WHERE id=?",
+      $id
+    );
+  
+    redirect_to();
+  }
 }
 
 function get_task($id) {
@@ -64,8 +66,8 @@ function get_task($id) {
     $id
   )->fetch();
 
-  if ($task['user_id'] != $current_user) {
-    redirect_to();
+  if ($task['user_id'] !== $current_user) {
+    return NULL;
   }
   
   return $task;
