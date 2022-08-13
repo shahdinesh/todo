@@ -15,15 +15,17 @@ $message = get_flash_message();
 </head>
 
 <body>
-  <div>
-    <div style="width: 80%;float: left;">
+  <div class="header">
+    <div>
       Welcome, <strong><?= $_SESSION['user_name'] ?></strong>
-    </div>
-    <div style="width: 20%;float: right;text-align: right;">
-      <a href="<?=$base_url ?>auth/logout.php">Logout</a>
+      <span class="item">
+        <a href="<?=$base_url ?>">Tasks</a>
+      </span>
+      <span class="logout">
+        <a class="btn" href="<?=$base_url ?>auth/logout.php">Logout</a>
+      </span>
     </div>
   </div>
-  <hr>
   <?php if ($message['message']): ?>
   <div class="alert alert-<?=$message['type'] ?>">
     <div style="width: 90%;float: left;">

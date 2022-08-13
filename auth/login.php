@@ -69,53 +69,56 @@ if (isset($_POST['register'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | ToDo app</title>
   <link rel="stylesheet" href="<?=$base_url ?>/css/todo.css">
+  <link rel="stylesheet" href="<?=$base_url ?>/css/login.css">
 </head>
 <body>
-  <div style="width: 50%;float: left;">
-    <?php if ($login_error) : ?>
-    <h4 style="color: red;"><?=$login_error ?></h4>
-    <?php endif ?>
-    <h3>Please, login into system</h3>
-    <form method="post">
-      <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-      </div>
-      <div>
-        <button type="submit" name="login">Login</button>
-      </div>
-    </form>
-  </div>
-  <div style="width: 50%;float: left;">
-    <h3>Resister into system</h3>
-    <form method="post">
-      <div>
-        <label for="name">Name</label>
-        <input type="name" name="name" id="name" value="<?=$_POST['name'] ?>">
-        <div class="error-message"><?= (isset($register_errors['name']) && $register_errors['name']) ? $register_errors['name'] : "" ?></div>
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="<?=$_POST['email'] ?>">
-        <div class="error-message"><?= (isset($register_errors['email']) && $register_errors['email']) ? $register_errors['email'] : "" ?></div>
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <div class="error-message"><?= (isset($register_errors['password']) && $register_errors['password']) ? $register_errors['password'] : "" ?></div>
-      </div>
-      <div>
-        <label for="confirm_password">Confirm Password</label>
-        <input type="password" name="confirm_password" id="confirm_password">
-      </div>
-      <div>
-        <button type="submit" name="register">Register</button>
-      </div>
-    </form>
+  <div class="container">
+    <div class="login">
+      <?php if ($login_error) : ?>
+      <h4 style="color: red;"><?=$login_error ?></h4>
+      <?php endif ?>
+      <h3>Please, login into system</h3>
+      <form class="form" method="post">
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+        </div>
+        <div class="form-control">
+          <button type="submit" name="login">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="register">
+      <h3>Resister into system</h3>
+      <form class="form" method="post">
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input type="name" name="name" id="name" value="<?=$_POST['name'] ?>">
+          <div class="error-message"><?= (isset($register_errors['name']) && $register_errors['name']) ? $register_errors['name'] : "" ?></div>
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" value="<?=$_POST['email'] ?>">
+          <div class="error-message"><?= (isset($register_errors['email']) && $register_errors['email']) ? $register_errors['email'] : "" ?></div>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+          <div class="error-message"><?= (isset($register_errors['password']) && $register_errors['password']) ? $register_errors['password'] : "" ?></div>
+        </div>
+        <div class="form-control">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="password" name="confirm_password" id="confirm_password">
+        </div>
+        <div class="form-control">
+          <button type="submit" name="register">Register</button>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>

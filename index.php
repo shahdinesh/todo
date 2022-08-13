@@ -15,8 +15,10 @@ if (isset($_POST['status'])) {
 ?>
 
   <?php include "./header.php"; ?>
-  <a href="<?=$base_url ?>/task/add.php">Add To do</a>
-  <h2>To do list</h2>
+  <div class="task">
+    <h2>To do list</h2>
+    <a class="btn" href="<?=$base_url ?>/task/add.php">Add To do</a>
+  </div>
   <table>
     <tr>
       <td colspan="7" style="text-align: right;">

@@ -4,7 +4,8 @@ table {
   width: 100%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -13,23 +14,118 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
 .alert {
   border-radius: 6px;
   padding: 5px;
   width: 99%;
   height: 17px;
 }
+
 .alert-success {
   background-color: #e3fbbe;
   border: 1px solid #00ff00;
   color: #005400;
 }
+
 .alert-danger {
   background-color: #fbbebe;
   border: 1px solid #ff0000;
   color: #540000;
 }
+
 .error-message {
   background-color: #d92929;
   color: white;
+  margin-top: 3px;
+}
+
+.header {
+  background-color: #cfffbb;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.header .item {
+  border-left: 2px solid #000;
+  padding-left: 10px;
+  margin-left: 5px;
+}
+
+.header .item a {
+  text-decoration: none;
+}
+
+.logout {
+  float: right;
+  text-align: right;
+}
+
+a.btn {
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  padding: 7px 20px;
+  border-radius: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.logout a.btn {
+  background: #910011;
+  border: 1px solid #ec263c66;
+}
+
+.task h2 {
+  width: 80%;
+  float: left;
+}
+
+.task a.btn {
+  background: #006191;
+  border: 1px solid #26d8ec66;
+  width: 6%;
+  float: right;
+  text-align: right;
+  margin-top: 18px;
+}
+
+.form {
+  padding: 30px 40px;
+}
+
+.form-control {
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.form-control label {
+  color: #33032d;
+  display: block;
+}
+
+.form-control input,
+.form-control select {
+  border-radius: 6px;
+  border: #affab0 solid 2px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+}
+
+.form button {
+  cursor: pointer;
+  background: #fc465c;
+  border: 1px solid #ec263c66;
+  color: #fff;
+  font-size: 16px;
+  padding: 0.618em 1.2em;
+  border-radius: 0.4em;
+  font-family: "Yeseva One", Georgia, cursive;
+  display: block;
+}
+
+.task .form-control input,
+.task .form-control select {
+  border: #000 solid 1px;
 }

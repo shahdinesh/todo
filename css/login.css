@@ -1,0 +1,30 @@
+body {
+  background-color: #cfdddd;
+  color: #33032d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.container {
+  width: 800px;
+  border-radius: 0.6em;
+  padding: 20px;
+  background-color: #cfffbb;
+  box-shadow: 20px 20px 60px #97a1a1, -20px -20px 60px #ffffff;
+  margin: 20px auto;
+}
+
+.login {
+  width: 48%;
+  float: left;
+}
+
+.register {
+  width: 50%;
+  float: left;
+  border-left: 1px solid black;
+  padding-left: 10px;
+}
