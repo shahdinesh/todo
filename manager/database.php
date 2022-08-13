@@ -104,17 +104,6 @@ class Database
     return $this->connection->close();
   }
 
-  public function numRows()
-  {
-    $this->query->store_result();
-    return $this->query->num_rows;
-  }
-
-  public function affectedRows()
-  {
-    return $this->query->affected_rows;
-  }
-
   public function lastInsertID()
   {
     return $this->connection->insert_id;
