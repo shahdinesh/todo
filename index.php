@@ -72,7 +72,7 @@ if (isset($_POST['status'])) {
         </td>
         <td>
           <a href="<?=$base_url ?>/task/edit.php?id=<?=$todo['id'] ?>">Edit</a>
-          <form method="post">
+          <form method="post" onsubmit="return confirm('Do you really want to delete the task?');">
             <input type="hidden" name="id" value="<?=$todo['id'] ?>">
             <button type="submit" name="delete">Delete</button>
           </form>
